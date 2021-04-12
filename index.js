@@ -3,17 +3,15 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
 
-console.log("hoge");
-
 // create LINE SDK config from env variables
 const config = {
   channelAccessToken: process.env.LINE_ACCESS_TOKEN,
   channelSecret: process.env.LINE_CHANNEL_SECRET,
 };
-console.log("fuga");
+
 // create LINE SDK client
 const client = new line.Client(config);
-console.log("monge");
+
 // create Express app
 // about Express itself: https://expressjs.com/
 const app = express();
@@ -39,7 +37,7 @@ function handleEvent(event) {
 
   // create a echoing text message
   const echo = { type: 'text', text: event.message.text };
-
+  console.log(echo[0])
   // use reply API
   return client.replyMessage(event.replyToken, echo);
 }
