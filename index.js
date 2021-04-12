@@ -36,8 +36,14 @@ function handleEvent(event) {
   }
 
   // create a echoing text message
-  const echo = { type: 'text', text: event.message.text };
-  console.log(event.message.text[0])
+  let sum = 0
+  let num = event.message.text.split('+');
+  for (let i = 0; i < num.length; i++){
+    sum += parseInt(num[i], 10);
+  }
+
+  const echo = { type: 'text', text: String(sum)};
+  console.log(sum)
   // use reply API
   return client.replyMessage(event.replyToken, echo);
 }
