@@ -34,13 +34,4 @@ async function handleEvent(event) {
 server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     res.sendStatus(200);
     console.log(req.body);
-    if(req.body.events[0].replyToken === '00000000000000000000000000000000' && req.body.events[1].replyToken === 'ffffffffffffffffffffffffffffffff'){
-      res.send('Hello LINE BOT!(POST)');
-      console.log('疎通確認用');
-      return; 
-  }
-
-    Promise
-      .all(req.body.events.map(handleEvent))
-      .then((result) => res.json(result));
 });
