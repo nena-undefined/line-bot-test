@@ -11,6 +11,7 @@ const config = {
 
 // create LINE SDK client
 const client = new line.Client(config);
+client.setDefaultRichMenu('richmenu-72cc81e2452e9682f50cfa5dacdcd9d5')
 
 // create Express app
 // about Express itself: https://expressjs.com/
