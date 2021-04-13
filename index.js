@@ -12,6 +12,8 @@ const config = {
 // create LINE SDK client
 const client = new line.Client(config);
 
+client.setRichMenuImage('1', fs.createReadStream('./richmenu.jpg'))
+
 // create Express app
 // about Express itself: https://expressjs.com/
 const app = express();
