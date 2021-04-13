@@ -2,7 +2,6 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
-const fs = require('fs');
 
 // create LINE SDK config from env variables
 const config = {
@@ -12,8 +11,6 @@ const config = {
 
 // create LINE SDK client
 const client = new line.Client(config);
-
-client.setRichMenuImage('1', fs.createReadStream('./richmenu.jpg'))
 
 // create Express app
 // about Express itself: https://expressjs.com/
