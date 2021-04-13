@@ -9,7 +9,7 @@ const config = {
   channelSecret: process.env.LINE_CHANNEL_SECRET,
 };
 
-const firstMessage = {
+let firstMessage = {
   "type": "bubble",
   "hero": {
     "type": "image",
