@@ -106,12 +106,17 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 // event handler
 function handleEvent(event) {
+
+  if (event.type === 'follow'){
+    return client.replyMessage(event.replyToken, firstMessage);    
+  }
+
   if (event.type !== 'message' || event.message.type !== 'text') {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
 
-  if (event.message.text == "アンケート"){
+  if (event.message.text === "アンケート"){
     //Flex messageで、JSONを送る？
     return client.replyMessage(event.replyToken, firstMessage);
   }else{
